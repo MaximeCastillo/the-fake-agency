@@ -4,8 +4,7 @@ import { injectIntl } from 'react-intl';
 const Home = ({ intl }) => {
     return (
         <div>
-            <h1>Home</h1>
-            <h2>{intl.formatMessage({ id: "home.title" })}</h2>
+            <h1>{intl.formatMessage({ id: "home.title" })}</h1>
             <p>{intl.formatMessage({ id: "home.paragraph" })}</p>
         </div>
     );
