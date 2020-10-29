@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import LanguageButton from 'components/LanguageButton';
 
-const StudyCase = ({ pages }) => {
+const StudyCase = () => {
 	return (
 		<div>
 			Texte
