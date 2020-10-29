@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router,
@@ -16,15 +16,16 @@ import messagesFr from 'translation/fr';
 import LanguageContext from 'context/Language';
 
 const App = () => {
-  const [currentLanguage, setCurrentLanguage] = useState('fr');
-  console.log("Language de l'App : ", currentLanguage);
+  const [currentLanguage, setCurrentLanguage] = useState(localStorage.getItem('the-fake-agency-config'));
+  
+  useEffect(() => {
+    localStorage.setItem('the-fake-agency-config', currentLanguage);
+  }, [currentLanguage]);
 
   const messages = {
     fr: messagesFr,
     en: messagesEn,
   };
-
-  console.log("messages :", messages)
 
   const pages = [
     { url: "/", name: "Home" },
