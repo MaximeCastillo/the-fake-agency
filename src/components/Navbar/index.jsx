@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import fr_flag from 'assets/images/fr_flag.png';
+import LanguageButton from 'components/LanguageButton';
 
 const Navbar = ({ pages }) => {
 	const links = pages.map((page) => {
@@ -18,7 +18,7 @@ const Navbar = ({ pages }) => {
 			<ul className="navbar-nav">
 				{links}
 			</ul>
-			<img src={fr_flag} alt="drapeau français" />
+			<LanguageButton />
 		</nav>
 	);
 }
