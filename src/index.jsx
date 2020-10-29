@@ -5,16 +5,26 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+import { IntlProvider } from 'react-intl';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from 'components/Navbar';
 import Home from 'pages/Home';
 import About from 'pages/About';
 import Works from 'pages/Works';
+import messagesEn from 'translation/en';
+import messagesFr from 'translation/fr';
 import LanguageContext from 'context/Language';
 
 const App = () => {
   const [currentLanguage, setCurrentLanguage] = useState('fr');
   console.log("Language de l'App : ", currentLanguage);
+
+  const messages = {
+    fr: messagesFr,
+    en: messagesEn,
+  };
+
+  console.log("messages :", messages)
 
   const pages = [
     { url: "/", name: "Home" },
@@ -23,29 +33,31 @@ const App = () => {
   ];
 
   return (
-    <LanguageContext.Provider value={{
-      currentLanguage,
-      changeToFr: () => setCurrentLanguage('fr'),
-      changeToEn: () => setCurrentLanguage('en'),
-    }}>
-      <Router>
-        <div>
-          <Navbar pages={pages} />
+    <IntlProvider locale={currentLanguage} messages={messages[currentLanguage]}>
+      <LanguageContext.Provider value={{
+        currentLanguage,
+        changeToFr: () => setCurrentLanguage('fr'),
+        changeToEn: () => setCurrentLanguage('en'),
+      }}>
+        <Router>
+          <div>
+            <Navbar pages={pages} />
 
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/works">
-              <Works />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </LanguageContext.Provider>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/works">
+                <Works />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </LanguageContext.Provider>
+    </IntlProvider>
   );
 }
 

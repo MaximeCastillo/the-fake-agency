@@ -1,8 +1,8 @@
 import home from './home.json';
 import about from './about.json';
 
-const messagesFr = {
+const messagesEn = {
     ...home, ...about,
 };
 
-export default messagesFr;
+export default messagesEn;
