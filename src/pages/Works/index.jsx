@@ -1,7 +1,13 @@
-import StudyCaseCard from 'components/StudyCaseCard';
-import studies from 'data/studies';
 import React from 'react';
 import { injectIntl } from 'react-intl';
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+} from 'react-router-dom';
+import studies from 'data/studies';
+import StudyCaseCard from 'components/StudyCaseCard';
+import StudyCase from 'components/StudyCase';
 
 const Works = ({ intl }) => {
     const studiesCards = studies.map((study) => {
@@ -11,15 +17,22 @@ const Works = ({ intl }) => {
     })
 
     return (
-        <div>
+        <Router>
             <div>
-                <h1>{intl.formatMessage({ id: "works.title" })}</h1>
-                <p>{intl.formatMessage({ id: "works.paragraph" })}</p>
+                <div>
+                    <h1>{intl.formatMessage({ id: "works.title" })}</h1>
+                    <p>{intl.formatMessage({ id: "works.paragraph" })}</p>
+                </div>
+                <div>
+                    {studiesCards}
+                </div>
             </div>
-            <div>
-                {studiesCards}
-            </div>
-        </div>
+            <Switch>
+                <Route path="/works/:studySlug">
+                    <StudyCase />
+                </Route>
+            </Switch>
+        </Router>
     );
 }
 
