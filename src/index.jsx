@@ -16,15 +16,7 @@ import messagesFr from 'translation/fr';
 import LanguageContext from 'context/Language';
 
 const App = () => {
-  const getInitialLanguage = () => {
-    if (localStorage.getItem('the-fake-agency-config') === null) {
-      return 'fr'
-    } else {
-      return localStorage.getItem('the-fake-agency-config')
-    }
-  }
-
-  const [currentLanguage, setCurrentLanguage] = useState(() => getInitialLanguage());
+  const [currentLanguage, setCurrentLanguage] = useState(localStorage.getItem('the-fake-agency-config') || 'fr');
   
   useEffect(() => {
     localStorage.setItem('the-fake-agency-config', currentLanguage);
