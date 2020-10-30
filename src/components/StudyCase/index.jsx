@@ -18,27 +18,31 @@ const StudyCase = () => {
 		)
 	} else if (value.currentLanguage === 'fr') {
 		return (
-			<div className="card">
-				<div className="card-header">
-					{currentStudy.title.fr}
-  			</div>
-				<div className="card-body">
-					<blockquote className="blockquote mb-0">
-						<p>{currentStudy.paragraph.fr}</p>
-					</blockquote>
+			<div style={{ display: 'flex', justifyContent: 'center' }}>
+				<div className="card" style={{ width: "50rem" }}>
+					<div className="card-header" style={{ backgroundColor: '#343A40', color: 'white' }}>
+						{currentStudy.title.fr}
+					</div>
+					<div className="card-body">
+						<blockquote className="blockquote mb-0">
+							<p>{currentStudy.paragraph.fr}</p>
+						</blockquote>
+					</div>
 				</div>
 			</div>
 		);
 	} else if (value.currentLanguage === 'en') {
 		return (
-			<div className="card">
-				<div className="card-header">
-					{currentStudy.title.en}
-  			</div>
-				<div className="card-body">
-					<blockquote className="blockquote mb-0">
-						<p>{currentStudy.paragraph.en}</p>
-					</blockquote>
+			<div style={{ display: 'flex', justifyContent: 'center' }}>
+				<div className="card" style={{ width: "50rem" }}>
+					<div className="card-header" style={{ backgroundColor: '#343A40', color: 'white' }}>
+						{currentStudy.title.en}
+					</div>
+					<div className="card-body">
+						<blockquote className="blockquote mb-0">
+							<p>{currentStudy.paragraph.en}</p>
+						</blockquote>
+					</div>
 				</div>
 			</div>
 		);

@@ -23,7 +23,7 @@ const Works = ({ intl }) => {
                     <h1>{intl.formatMessage({ id: "works.title" })}</h1>
                     <p>{intl.formatMessage({ id: "works.paragraph" })}</p>
                 </div>
-                <div>
+                <div style={{ display: 'flex', justifyContent: "space-around", padding: '5rem' }}>
                     {studiesCards}
                 </div>
             </div>
